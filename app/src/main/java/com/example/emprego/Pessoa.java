@@ -1,52 +1,32 @@
 package com.example.emprego;
 
-import java.io.Serializable;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 
-public class Pessoa implements Serializable {
-    private int pessoaId;
-    private int vagaId;
+@Entity(tableName = "pessoas")
+public class Pessoa {
+
+    @PrimaryKey
+    private int id;
+
     private String nome;
-    private String cpf;
+
     private String email;
-    private String telefone;
 
-    public Pessoa() {
+    private String produtora;
+
+    private String plataforma;
+
+    private String genero;
+
+    private String distribuidora;
+
+    public int getId() {
+        return id;
     }
 
-    public Pessoa(String nome, String cpf, String email, String telefone, int pessoaId) {
-        this.pessoaId = pessoaId;
-        this.nome = nome;
-        this.cpf = cpf;
-        this.email = email;
-        this.telefone = telefone;
-    }
-
-    @Override
-    public String toString() {
-        return "Pessoa{" +
-                "pessoaId=" + pessoaId +
-                ", vagaId=" + vagaId +
-                ", nome='" + nome + '\'' +
-                ", cpf='" + cpf + '\'' +
-                ", email='" + email + '\'' +
-                ", telefone='" + telefone + '\'' +
-                '}';
-    }
-
-    public int getPessoaId() {
-        return pessoaId;
-    }
-
-    public void setPessoaId(int pessoaId) {
-        this.pessoaId = pessoaId;
-    }
-
-    public int getVagaId() {
-        return vagaId;
-    }
-
-    public void setVagaId(int vagaId) {
-        this.vagaId = vagaId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -57,14 +37,6 @@ public class Pessoa implements Serializable {
         this.nome = nome;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -73,11 +45,35 @@ public class Pessoa implements Serializable {
         this.email = email;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getProdutora() {
+        return produtora;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setProdutora(String produtora) {
+        this.produtora = produtora;
+    }
+
+    public String getPlataforma() {
+        return plataforma;
+    }
+
+    public void setPlataforma(String plataforma) {
+        this.plataforma = plataforma;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getDistribuidora() {
+        return distribuidora;
+    }
+
+    public void setDistribuidora(String distribuidora) {
+        this.distribuidora = distribuidora;
     }
 }

@@ -1,24 +1,31 @@
 package com.example.emprego;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
+@Entity(tableName = "empregos")
 public class Emprego {
-    private int vagaId;
+
+    @PrimaryKey
+    private int id;
     private String descricao;
     private int horasSemana;
-    private double valor ;
+    private double valor;
 
-    public Emprego(int vagaId, String descricao, int horasSemana, double valor) {
-        this.vagaId = vagaId;
-        this.descricao = descricao;
-        this.horasSemana = horasSemana;
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
         this.valor = valor;
     }
 
-    public int getVagaId() {
-        return vagaId;
+    public int getId() {
+        return id;
     }
 
-    public void setVagaId(int vagaId) {
-        this.vagaId = vagaId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDescricao() {
@@ -35,16 +42,5 @@ public class Emprego {
 
     public void setHorasSemana(int horasSemana) {
         this.horasSemana = horasSemana;
-    }
-
-    public double getValor() {
-        return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
-
-    public Emprego() {
     }
 }
