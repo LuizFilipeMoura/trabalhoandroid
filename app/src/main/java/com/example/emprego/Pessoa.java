@@ -1,6 +1,8 @@
 package com.example.emprego;
 
-public class Pessoa {
+import java.io.Serializable;
+
+public class Pessoa implements Serializable {
     private int pessoaId;
     private int vagaId;
     private String nome;
@@ -11,13 +13,24 @@ public class Pessoa {
     public Pessoa() {
     }
 
-    public Pessoa(int pessoaId, int vagaId, String nome, String cpf, String email, String telefone) {
+    public Pessoa(String nome, String cpf, String email, String telefone, int pessoaId) {
         this.pessoaId = pessoaId;
-        this.vagaId = vagaId;
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.telefone = telefone;
+    }
+
+    @Override
+    public String toString() {
+        return "Pessoa{" +
+                "pessoaId=" + pessoaId +
+                ", vagaId=" + vagaId +
+                ", nome='" + nome + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", email='" + email + '\'' +
+                ", telefone='" + telefone + '\'' +
+                '}';
     }
 
     public int getPessoaId() {

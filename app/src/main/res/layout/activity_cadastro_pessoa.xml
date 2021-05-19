@@ -53,7 +53,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="cadastrar"
+            android:onClick="salvar"
             android:text="Cadastrar Pessoa" />
 
     </LinearLayout>
@@ -64,5 +64,12 @@
         android:layout_height="wrap_content"
         android:onClick="cancelar"
         android:text="CANCELAR" />
+
+    <Button
+        android:id="@+id/removerPessoa"
+        android:layout_width="148dp"
+        android:layout_height="wrap_content"
+        android:onClick="remover"
+        android:text="Remover Pessoa" />
 
 </LinearLayout>

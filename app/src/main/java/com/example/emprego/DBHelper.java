@@ -5,16 +5,16 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class DBHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME="empregos.db";
+    private static final String DATABASE_NAME="empregos1.db";
     private static final String PESSOA_TABLE_NAME ="pessoa";
     private static final String COLUMM_PESSOA_ID ="pessoaId";
     private static final String COLUMM_NAME="nome";
@@ -23,8 +23,8 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMM_TELEFONE="telefone";
     SQLiteDatabase db;
     private static final String TABLE_PESSOA_CREATE = "create table pessoa " +
-            "(pessoaId integer primary key autoincrement, nome text not null, " +
-            "email text, cpf text, telefone integer, vagaId integer);";
+            "(pessoaId INTEGER PRIMARY KEY AUTOINCREMENT, nome text not null, " +
+            "email text, cpf text, telefone text, vagaId integer);";
 
     private static final String EMPREGO_TABLE_NAME ="emprego";
     private static final String COLUMM_VAGA_ID ="vagaId";
@@ -56,6 +56,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public void inserirPessoa(Pessoa p){
+
         db=this.getWritableDatabase();
         ContentValues values=new ContentValues();
         values.put(COLUMM_NAME, p.getNome());
@@ -94,6 +95,13 @@ public class DBHelper extends SQLiteOpenHelper {
         return b;
     }
 
+    public int removerPessoa(View view, String id ) {
+//        db.delete(PESSOA_TABLE_NAME)
+
+        return db.delete(PESSOA_TABLE_NAME, COLUMM_PESSOA_ID + "=?", new String[]{id});
+
+    }
+
     public ArrayList<Pessoa> listarPessoas() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursorCourses = db.rawQuery("SELECT * FROM " + PESSOA_TABLE_NAME, null);
@@ -101,16 +109,30 @@ public class DBHelper extends SQLiteOpenHelper {
 
         if (cursorCourses.moveToFirst()) {
             do {
-                Log.d("myTag", cursorCourses.getString(1));
-
-//                courseModalArrayList.add(new Pessoa(cursorCourses.getString(1),
-//                        cursorCourses.getString(4),
-//                        cursorCourses.getString(2),
-//                        cursorCourses.getString(3)));
+                    courseModalArrayList.add(new Pessoa(cursorCourses.getString(1),
+                        cursorCourses.getString(3),
+                        cursorCourses.getString(2),
+                        cursorCourses.getString(4),
+                        cursorCourses.getInt(5))
+                        );
             } while (cursorCourses.moveToNext());
         }
         cursorCourses.close();
         return courseModalArrayList;
     }
 
+
+    public void editarPessoa(Pessoa p) {
+        db=this.getWritableDatabase();
+        ContentValues values=new ContentValues();
+//        values.put(COLUMM_PESSOA_ID, p.getPessoaId());
+        values.put(COLUMM_NAME, p.getNome());
+        values.put(COLUMM_EMAIL, p.getEmail());
+        values.put(COLUMM_CPF, p.getCpf());
+        values.put(COLUMM_TELEFONE, p.getTelefone());
+        db.update(PESSOA_TABLE_NAME,values, COLUMM_PESSOA_ID + "= ?", new String[]{Integer.toString(p.getPessoaId())});
+
+        db.close();
+
+    }
 }
