@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ufmslogo"
+    tools:context="com.example.emprego.homeFragment">
+
+
+    <Button
+        android:id="@+id/buttonListarUsuarios"
+        android:layout_width="132dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:layout_height="40dp"
+
+        android:text="Listar Pessoas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonInserirUsuario" />
+
+    <Button
+        android:id="@+id/buttonAlterarUsuario"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_height="40dp"
+
+        android:layout_marginTop="28dp"
+        android:text="Alterar Pessoa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonListarUsuarios" />
+
+    <Button
+        android:id="@+id/buttonDeletarUsuario"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_height="40dp"
+
+        android:layout_marginTop="28dp"
+        android:text="Deletar Pessoa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAlterarUsuario" />
+
+    <Button
+        android:id="@+id/buttonInserirUsuario"
+        android:layout_width="131dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="72dp"
+        android:layout_height="40dp"
+
+        android:text="Inserir Pessoa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonAddEmprego"
+        android:layout_width="144dp"
+        android:layout_marginTop="72dp"
+        android:layout_height="40dp"
+
+        android:layout_marginEnd="16dp"
+        android:text="Inserir Emprego"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonListarEmprego"
+        android:layout_width="152dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="12dp"
+        android:text="Listar Empregos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddEmprego" />
+
+    <Button
+        android:id="@+id/buttonAlterarEmprego"
+        android:layout_width="152dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="12dp"
+        android:text="Alterar Emprego"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonListarEmprego" />
+
+    <Button
+        android:id="@+id/buttonDeletarEmprego"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_height="40dp"
+
+        android:layout_marginEnd="12dp"
+        android:text="Deletar emprego"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAlterarEmprego" />
+
+</android.support.constraint.ConstraintLayout>
